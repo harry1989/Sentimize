@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "author": "Abhishek Kapatkar",
   "repository": {
-      "url": "git@github.com:flinn/Sentimize.git",
-      "type": "git"
+    "url": "git@github.com:flinn/Sentimize.git",
+    "type": "git"
   },
   "readme": "Basic Express app to get started",
   "dependencies": {
@@ -16,6 +16,7 @@
     "async": "0.2.9",
     "request": "2.27.0",
     "tracer": "0.6.1",
-    "socket.io": "0.9.16"
+    "socket.io": "0.9.16",
+    "cli-table": "~0.3.0"
   }
 }

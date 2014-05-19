@@ -38,6 +38,9 @@ app.get('/stocks/add', stocks.index);
 app.get('/snapshot/:symbol', snapshot.index);
 
 // API Endpoints
+app.get('/api', routes.api);
+app.get('/api/overview', routes.overview);
+app.get('/api/snapshot/:symbol', snapshot.snapshot);
 app.get('/api/sentiments/:symbol', content.sentiments);
 app.get('/api/quotes/:symbol', content.quotes);
 app.get('/api/currentprice/:symbol', content.currentPrice);
@@ -46,7 +49,6 @@ app.get('/api/trending/', content.trendingSymbols);
 app.get('/api/tweets/:symbol', content.tweets);
 app.get('/api/tweetwordcount/:symbol', content.tweetWordCount);
 app.get('/api/capsratings/:symbol', content.capsRatings);
-
 
 var port = process.env.PORT || 3000;
 

@@ -28,7 +28,7 @@ Dashboard
         </tr>
       </thead>
       <tbody>
-        {% for stock in data.stocks %}
+        {% for stock in stocks %}
           <tr>
             <td><strong><a href="http://caps.fool.com/Ticker/{{ stock.symbol }}.aspx"> {{ stock.symbol }}</a></strong></td>
             <td>{% if (stock.sentimetric >= 8) %}<span style="font-size: 18px" class="label label-important">{% endif %}{% if (stock.sentimetric <= 8 && stock.sentimetric >= 5) %}<span style="font-size: 18px" class="label label-warning">{% endif %}{% if (stock.sentimetric < 5) %}<span style="font-size: 18px" class="label label-default">{% endif %}{{ stock.sentimetric }}</span></td>
