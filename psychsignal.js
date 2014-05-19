@@ -18,27 +18,38 @@ module.exports = function get_sentiments(symbol, startDate, endDate, fn) {
         if (!error && response.statusCode == 200) {
 
             var data = {
-                "symbol": contents.symbol,
+                "symbol": symbol,
                 "bullish": [],
-                "bearish": []
+                "bearish": [],
+                "sentiments": []
             };
 
-            var bullish = contents.bullish;
+            var sentiments = contents.sentiments;
 
-            bullish.forEach(function(signal) {
-                data.bullish.push({
-                    date: new Date(signal[0]),
-                    value: signal[1]
+            sentiments.forEach(function(sent) {
+                var date = sent.date,
+                    bull = parseFloat(sent.bullish),
+                    bear = parseFloat(sent.bearish);
+
+                data.sentiments.push({
+                    date: new Date(date),
+                    bearish: bear,
+                    bullish: bull
                 });
-            });
 
-            var bearish = contents.bearish;
-
-            bearish.forEach(function(signal) {
-                data.bearish.push({
-                    date: new Date(signal[0]),
-                    value: signal[1]
-                });
+                if (bull > bear){
+                    data.bullish.push({
+                        date: new Date(date),
+                        value: bull,
+                    });
+                }
+                else{
+                    data.bearish.push({
+                        date: new Date(date),
+                        value: bear,
+                    });
+                }
+                
             });
 
             return fn(null, data);

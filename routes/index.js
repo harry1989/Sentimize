@@ -34,6 +34,9 @@ exports.index = function(req, res) {
         non_caps_stars.push("not");
       }
 
+      var lastBear = _.last(result.sentiments.bearish) || {} ,
+          lastBull = _.last(result.sentiments.bullish) || {};
+
       var row = {
         "symbol": result.symbol,
         "idea_num": idea_count,
@@ -41,8 +44,8 @@ exports.index = function(req, res) {
         "price": result.price,
         "cap_stars": caps_stars,
         "non_cap_stars": non_caps_stars,
-        "bullish": _.last(result.sentiments.bullish).value,
-        "bearish": _.last(result.sentiments.bearish).value,
+        "bullish": lastBull.value,
+        "bearish": lastBear.value,
       };
 
       rows.push(row);

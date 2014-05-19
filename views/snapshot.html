@@ -8,22 +8,21 @@ Details <span class="fui-arrow-right"></span> <strong>{{ data.symbol }}</strong>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script>
 
-        var bullishSentiments = {{JSON.stringify(data.sentiments.bullish)}};
-        var bearishSentiments = {{JSON.stringify(data.sentiments.bearish)}};
-
+        var sentiments = {{JSON.stringify(data.sentiments.sentiments)}};  
         var quotes = {{JSON.stringify(data.quotes)}};
-
         var chartDatas = [];
 
-        for(i = 0; i < bullishSentiments.length; i++) {
-            var date = bullishSentiments[i].date;
+        for(i = 0; i < sentiments.length; i++) {
+            var sent = sentiments[i];
 
-            var bullish = bullishSentiments[i].value;
-            var bearish = bearishSentiments[i].value;
+            var date = sent.date;
 
-            var price = quotes[i].close;
+            var bullish = sent.value;
+            var bearish = sent.value;
 
-            var data = { date: date, bullish: bullish, bearish: bearish, price: price  };
+            var price = quotes[i] ? quotes[i].close: 0;
+
+            var data = { date: date, bullish: bullish, bearish: bearish, price: price };
 
             chartDatas.push(data);
         }
