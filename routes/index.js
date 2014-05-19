@@ -1,9 +1,9 @@
 var _ = require('underscore'),
   async = require('async'),
-  loadSentiments = require('../psychsignal'),
-  loadCapsRatings = require('../caps'),
-  loadCurrentPrice = require('../quotes').get_current_price,
-  loadTrendingSymbols = require('../stocktwits').get_trending_symbol;
+  loadSentiments = require('../util/psychsignal'),
+  loadCapsRatings = require('../util/caps'),
+  loadCurrentPrice = require('../util/quotes').get_current_price,
+  loadTrendingSymbols = require('../util/stocktwits').get_trending_symbol;
 
 var myStocks = ['MSFT', 'AAPL', 'NFLX', 'SBUX', 'GOOG', 'KOL'];
 

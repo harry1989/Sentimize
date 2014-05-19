@@ -1,11 +1,11 @@
-var get_fool_content = require('../fool'),
-    get_sentiments = require('../psychsignal'),
-    get_trending_symbol = require('../stocktwits').get_trending_symbol,
-    get_tweets = require('../stocktwits').get_tweets,
-    get_word_counts = require('../stocktwits').get_word_counts,
-    get_caps_ratings = require('../caps'),
-    get_quotes = require('../quotes').get_quotes,
-    get_current_price = require('../quotes').get_current_price;
+var get_fool_content = require('../util/fool'),
+    get_sentiments = require('../util/psychsignal'),
+    get_trending_symbol = require('../util/stocktwits').get_trending_symbol,
+    get_tweets = require('../util/stocktwits').get_tweets,
+    get_word_counts = require('../util/stocktwits').get_word_counts,
+    get_caps_ratings = require('../util/caps'),
+    get_quotes = require('../util/quotes').get_quotes,
+    get_current_price = require('../util/quotes').get_current_price;
 
 exports.fool = function(req, res) {
     get_fool_content(req.params.symbol, function(err, contents) {

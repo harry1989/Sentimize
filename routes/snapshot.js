@@ -1,8 +1,8 @@
-var getSentiments = require('../psychsignal'),
-    getFoolContent = require('../fool'),
-    getQuotes = require('../quotes').get_quotes,
-    getTweets = require('../stocktwits').get_tweets,
-    getTweetWordCount = require('../stocktwits').get_word_counts,
+var getSentiments = require('../util/psychsignal'),
+    getFoolContent = require('../util/fool'),
+    getQuotes = require('../util/quotes').get_quotes,
+    getTweets = require('../util/stocktwits').get_tweets,
+    getTweetWordCount = require('../util/stocktwits').get_word_counts,
     async = require('async'),
     _ = require('underscore');
 
