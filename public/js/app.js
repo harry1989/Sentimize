@@ -17,11 +17,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 				controller: 'ChartCtrl'
 			},
 			'news' : {
-				templateUrl: '/templates/chart.html',
+				templateUrl: '/templates/news.html',
 				controller: 'NewsCtrl'
-			}
+			},
 			'tweets' : {
-				templateUrl: '/templates/chart.html',
+				templateUrl: '/templates/tweets.html',
 				controller: 'TweetCtrl'
 			}
 		}

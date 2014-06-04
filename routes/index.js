@@ -100,16 +100,6 @@ function fetchMarketData(stocks, callback){
         var caps_star_count = parseInt(10, result.capsRatings);
         var non_caps_star_count = 5 - caps_star_count;
 
-        var caps_stars = [];
-        var non_caps_stars = [];
-
-        for (var z = 1; z <= caps_star_count; z++) {
-          caps_stars.push("star");
-        }
-        for (var y = 0; y < non_caps_star_count; y++) {
-          non_caps_stars.push("not");
-        }
-
         var lastBear = _.last(result.sentiments.bearish) || {} ,
             lastBull = _.last(result.sentiments.bullish) || {};
 
@@ -118,8 +108,8 @@ function fetchMarketData(stocks, callback){
           "idea_num": idea_count,
           "sentimetric": real_sentimetric,
           "price": result.price,
-          "cap_stars": caps_stars,
-          "non_cap_stars": non_caps_stars,
+          "cap_stars": caps_star_count,
+          "non_cap_stars": non_caps_star_count,
           "bullish": lastBull.value,
           "bearish": lastBear.value,
         };
